@@ -1,10 +1,10 @@
 import React from 'react';
 import data from "./data.json";
-import { render } from 'react-dom';
+import Products from './components/Products';
 
 //class component
 class App extends React.Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       products: data.products,
@@ -20,7 +20,9 @@ class App extends React.Component {
         </header>
         <main>
           <div className="content">
-            <div className="main">Products</div>
+            <div className="main">
+              <Products products={this.state.products}></Products>
+            </div>
             <div className="sidebar">Cart</div>
           </div>
       </main>

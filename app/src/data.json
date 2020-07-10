@@ -1,0 +1,28 @@
+{
+    "product": [
+        {
+            "_id": "2bottles",
+            "image": "/images/img2bottles.jpg",
+            "title": "Bronze Member",
+            "description": "Red varietals only.",
+            "options": ["Red", "White", "Red & White"],
+            "price": 35.00
+        },
+        {
+            "_id": "6bottles",
+            "image": "/images/img6bottles.jpg",
+            "title": "Silver Member",
+            "description": "White varietals only.",
+            "options": ["Red", "White", "Red & White"],
+            "price": 90.00
+        },
+        {
+            "_id": "12bottles",
+            "image": "/images/img12bottles.jpg",
+            "title": "Gold Member",
+            "description": "Red and White varietals",
+            "options": ["Red", "White", "Red & White"],
+            "price": 150.00
+        }
+    ]
+}

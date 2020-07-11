@@ -18,13 +18,15 @@ import Cart from './components/Cart';
 // removeFromCart creates an instance of cart items and filters them based on ._id vs product._id
   // The user's selection is then set to a new cart item in the state
   // It is then set as a property to the cart
-  
+
+// Localstorage is used to make data persistent
+
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       products: data.products,
-      cartItems: [],
+      cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],
       options: "",
     };
   }
@@ -34,6 +36,7 @@ class App extends React.Component {
     this.setState({
       cartItems: cartItems.filter((x) => x._id !== product._id),
     });
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   };
 
   addToCart = (product) => {
@@ -48,9 +51,10 @@ class App extends React.Component {
     });
 
     if(!alreadyInCart){
-      cartItems.push({...product, count: 1})
+      cartItems.push({...product, count: 1});
     }
-    this.setState({cartItems})
+    this.setState({cartItems});
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   };
 
   render() {

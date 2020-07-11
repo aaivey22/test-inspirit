@@ -10,7 +10,7 @@ import formatCurrency from '../utils';
     //conditional rendering is used to hide/display the proceed button
 
 // Constructor(props) by default will not show the checkout form unless the proceed button is clicked
-// handleInput func updates the component state by accessing the input box name and it's value
+// handleInput func updates the component state by accessing the input box name and it's value (default is set to false)
 
 export default class Cart extends Component {
     constructor(props){

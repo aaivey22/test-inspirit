@@ -74,12 +74,15 @@ class App extends React.Component {
         <main>
           <div className="content">
             <div className="main">
-              <Products products={this.state.products}
-              addToCart={this.addToCart}></Products>
+              <Products
+                products={this.state.products}
+                addToCart={this.addToCart}></Products>
             </div>
             <div className="sidebar">
-              <Cart cartItems={this.state.cartItems}
-              removeFromCart={this.removeFromCart}
+              <Cart
+                cartItems={this.state.cartItems}
+                removeFromCart={this.removeFromCart}
+                createOrder={this.createOrder}
               />
             </div>
           </div>

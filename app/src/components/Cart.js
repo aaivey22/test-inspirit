@@ -5,6 +5,10 @@ import formatCurrency from '../utils';
 // Notify the user if their cart is empty or not with by using a condition statement
 // Each cartItem is mapped and their key is set to a jsx li item for ui/css purposes
 
+// Total is displayed with the reduce function by summing the accumulator
+    // and the quotient of the current item price by the current item count. Default value is set to 0.
+    //conditional rendering is used to hide/display the proceed button
+
 export default class Cart extends Component {
     render() {
 
@@ -12,7 +16,7 @@ export default class Cart extends Component {
         return (
             <div> {console.log("cart.js:11", cartItems)}
                 {cartItems.length === 0 ? (
-                    <div className="cart cart-header">Cart is empty</div>
+                    <div className="cart cart-header">Your cart is empty</div>
                 ) : (
                         <div className="cart cart-header">You have {cartItems.length} in the cart{" "}</div>
                     )}
@@ -32,10 +36,22 @@ export default class Cart extends Component {
                                 </div>
                             </li>
                         ))}
-
                     </ul>
                 </div>
+                {cartItems.length!==0 && (
+                    <div className="cart">
+                        <div className="total">
+                            <div>
+                                Total:{" "}
+                                {formatCurrency(
+                                    cartItems.reduce((a, c) => a + c.price * c.count, 0)
+                                )}
+                            </div>
+                            <button className="button primary">Proceed</button>
+                        </div>
+                    </div>
+                )}
             </div>
         )
-    }
-}
+    };
+};

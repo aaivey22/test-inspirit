@@ -4,7 +4,7 @@
             "_id": "2bottles",
             "image": "/images/img2bottles.png",
             "title": "Bronze Member",
-            "description": "Red varietals only.",
+            "description": "Bronze members receive 2 bottles a month. Members choose between red, white, or both varietals. Valued over $50!",
             "options": ["Red", "White", "Red & White"],
             "price": 35.00
         },
@@ -12,7 +12,7 @@
             "_id": "6bottles",
             "image": "/images/img6bottles.png",
             "title": "Silver Member",
-            "description": "White varietals only.",
+            "description": "Silver members receive 6 bottles a month (half of one case). Members choose between red, white, or both varietals. Valued over $125!",
             "options": ["Red", "White", "Red & White"],
             "price": 90.00
         },
@@ -20,7 +20,7 @@
             "_id": "12bottles",
             "image": "/images/img12bottles.png",
             "title": "Gold Member",
-            "description": "Red and White varietals",
+            "description": "Gold members receive 12 bottles a month (one full case). Members choose between red, white, or both varietals. Valued over $200!",
             "options": ["Red", "White", "Red & White"],
             "price": 150.00
         }

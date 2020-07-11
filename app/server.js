@@ -6,10 +6,14 @@ const shortid = require("shortid");
 const app = express();
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://localhost/app-db", {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,  
+app.use("/", express.static(_dirname + "/build"));
+app.get("/", (req, res) => res.sendFile(_dirname + "/build/index.html"));
+
+mongoose.connect(
+    process.env.MONGODB_URL || "mongodb://localhost/app-db", {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true,  
 });
 
 const Product = mongoose.model("products", new mongoose.Schema({

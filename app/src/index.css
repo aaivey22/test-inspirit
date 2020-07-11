@@ -72,7 +72,7 @@ footer {
   flex: 1 20rem;
 }
 
-/* products */
+/* Products.js */
 
 .products {
   display: flex;
@@ -132,4 +132,16 @@ footer {
 
 .button.primary {
   background-color: #f0c040;
+}
+
+/* Index.css */
+
+.cart {
+padding: 1rem;
+margin: 1rem;
+display: flex;
+}
+
+.cart-header {
+  border-bottom: .1rem #c0c0c0 solid;
 }

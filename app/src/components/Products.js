@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-// import formatCurrency from '../utils';
+import formatCurrency from '../utils';
+
+
+// Set addToCart event handler (the parent component App.js is responsible for handling this event)
+// Pass the current product as a paramter by using an => func and passing product in ()
 
 export default class Products extends Component {
+
     render() {
         return (
             <div>
@@ -14,8 +19,8 @@ export default class Products extends Component {
                                    <p>{product.title}</p>
                                </a>
                                <div className="product-price">
-                                    <div>{product.price}</div>
-                                    <button className="button primary">Add To Cart</button>
+                                    <div>{formatCurrency(product.price)}</div>
+                                    <button onClick={() => this.props.addToCart(product)}className="button primary">Add To Cart</button>
                                </div>
                            </div>
                        </li>

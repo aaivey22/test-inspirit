@@ -19,7 +19,9 @@ import Cart from './components/Cart';
   // The user's selection is then set to a new cart item in the state
   // It is then set as a property to the cart
 
-// Localstorage is used to make data persistent
+// Localstorage is used to make data persistent when adding/deleting from cart
+  // Because cartItems is a JS obj, it must be made into a string with stringify for storage
+  // The filter is passed in the JSON obj to check for the item's existence
 
 class App extends React.Component {
   constructor() {
@@ -36,7 +38,9 @@ class App extends React.Component {
     this.setState({
       cartItems: cartItems.filter((x) => x._id !== product._id),
     });
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    localStorage.setItem(
+      "cartItems", 
+      JSON.stringify(cartItems.filter((x) => x._id !== product._id)));
   };
 
   addToCart = (product) => {

@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 import formatCurrency from '../utils';
-
+import Modal from 'react-modal';
 
 // Set addToCart event handler (the parent component App.js is responsible for handling this event)
-// Pass the current product as a paramter by using an => func and passing product in ()
+// Pass the current product as a param by using an => func and passing product in ()
+// openModal func accepts product as a param and sets the product in the current state with the value of the clicked product 
 
 export default class Products extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            product: null,
+        };
+    }
+
+    openModal = (product) => {
+        this.setState({ product });
+    };
 
     render() {
         return (
@@ -14,7 +26,8 @@ export default class Products extends Component {
                    {this.props.products.map((product) => (
                        <li key={product._id}>
                            <div className="product">
-                               <a href={"#" + product._id}>
+                               <a href={"#" + product._id}
+                                onClick={() => this.openModal(product)}>
                                    <img src={product.image} alt={product.title}></img>
                                    <p>{product.title}</p>
                                </a>

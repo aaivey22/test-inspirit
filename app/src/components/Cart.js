@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import formatCurrency from '../utils';
 
 // Check the length of cartItems from the parent component
 // Notify the user if their cart is empty or not with by using a condition statement
@@ -23,9 +24,12 @@ export default class Cart extends Component {
                                     <img src={item.image} alt={item.title}></img>
                                 </div>
                                 <div>{item.title}</div>
-                                <button onClick={() => this.props.removeFromCart(item)}>
-                                    Remove
-                                </button>
+                                <div className="right">
+                                    {formatCurrency(item.price)} x {item.count}{" "}
+                                    <button className="button" onClick={() => this.props.removeFromCart(item)}>
+                                        Remove
+                                    </button>
+                                </div>
                             </li>
                         ))}
 

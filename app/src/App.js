@@ -13,6 +13,9 @@ import Cart from './components/Cart';
   // The spread operator is used to add a new instance of the item
   // Define addToCart as a property
   // Fill cart items
+// removeFromCart creates an instance of cart items and filters them based on ._id vs product._id
+  // The user's selection is then set to a new cart item in the state
+  // It is then set as a property to the cart
 class App extends React.Component {
   constructor() {
     super();
@@ -23,6 +26,13 @@ class App extends React.Component {
     };
   }
 
+  removeFromCart = (product) => {
+    const cartItems = this.state.cartItems.slice();
+    this.setState({
+      cartItems: cartItems.filter((x) => x._id !== product._id),
+    });
+  };
+
   addToCart = (product) => {
     const cartItems = this.state.cartItems.slice();
     let alreadyInCart = false;
@@ -32,7 +42,7 @@ class App extends React.Component {
         item.count++;
         alreadyInCart = true;
       }
-    })
+    });
 
     if(!alreadyInCart){
       cartItems.push({...product, count: 1})
@@ -53,7 +63,9 @@ class App extends React.Component {
               addToCart={this.addToCart}></Products>
             </div>
             <div className="sidebar">
-              <Cart cartItems={this.state.cartItems} />
+              <Cart cartItems={this.state.cartItems}
+              removeFromCart={this.removeFromCart}
+              />
             </div>
           </div>
       </main>
